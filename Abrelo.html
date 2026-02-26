@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Anahí ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Arial',sans-serif;
+    background:black;
+    overflow:hidden;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* fondo neon */
+body::before{
+    content:"";
+    position:fixed;
+    width:200%;
+    height:200%;
+    background:radial-gradient(circle,#ff0080,#000000 70%);
+    animation:move 10s infinite alternate;
+    z-index:-2;
+}
+
+@keyframes move{
+    from{transform:translate(-10%,-10%);}
+    to{transform:translate(10%,10%);}
+}
+
+/* pantalla inicio */
+#inicio{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:5;
+}
+
+.boton{
+    padding:20px 40px;
+    font-size:28px;
+    border:none;
+    border-radius:15px;
+    background:#ff00cc;
+    color:white;
+    cursor:pointer;
+    box-shadow:0 0 20px #ff00ff;
+    animation:latido 1.5s infinite;
+}
+
+@keyframes latido{
+    50%{transform:scale(1.1);}
+}
+
+/* carta */
+.carta{
+    background:rgba(0,0,0,0.75);
+    border-radius:20px;
+    padding:40px;
+    max-width:750px;
+    text-align:center;
+    box-shadow:0 0 25px #ff00ff;
+    backdrop-filter:blur(10px);
+    display:none;
+    animation:aparecer 2s ease;
+}
+
+@keyframes aparecer{
+    from{opacity:0; transform:scale(0.7);}
+    to{opacity:1; transform:scale(1);}
+}
+
+h1{
+    color:#ff4df5;
+    text-shadow:0 0 15px #ff00ff;
+}
+
+.texto{
+    line-height:1.8;
+    font-size:18px;
+}
+
+/* corazones */
+.heart{
+    position:absolute;
+    color:#ff2bd6;
+    font-size:20px;
+    animation:float 8s linear infinite;
+    text-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff;
+    z-index:-1;
+}
+
+@keyframes float{
+    0%{transform:translateY(100vh) scale(.5);opacity:0;}
+    50%{opacity:1;}
+    100%{transform:translateY(-10vh) scale(1.2);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Pantalla abrir -->
+<div id="inicio">
+<h1>💌 Tengo algo para ti...</h1>
+<button class="boton" onclick="abrirCarta()">Ábreme ❤️</button>
+</div>
+
+<!-- Carta -->
+<div class="carta" id="carta">
+<h1>💖 Para Anahí 💖</h1>
+
+<p class="texto">
+Antes de que sea tu cumpleaños mi querida Anahí siempre quiero que recuerdes lo mucho que te quiero,
+y como si fueras lo único importante en mi vida y si así es, no puedo pensar en algo que me haga tan feliz como tu
+y sabes no puedo evitar pensar que yo quiero que seas mía para toda la vida mi esposa la madre de mis hijos
+con quien quiero envejecer y por quien quiero darlo todo y jamás dejarte de lado y que siempre seas lo único
+que mi corazón desee, ya casi es tu cumpleaños y le agradezco a Dios por un año mas otro en donde puedo seguirte
+viendo riéndome contigo y en donde puedo seguir disfrutando del amor de una mujer tan bella,
+Feliz Cumpleaños mi pequeña por favor sigue creciendo como la mujer que seras pero siempre se esa niña que su corazón es puro amar,
+Te amo y desde el corazón te digo que hare todo lo posible para nunca dejar de luchar por ti,
+eres la mejor y como te adoro mami
+<br><br>
+PD: no te emborraches mucho, Borrachaaaaaaaaaa ❤️
+<br><br>
+&lt;3
+</p>
+
+<div style="font-size:22px;color:#ff4df5;text-shadow:0 0 10px #ff00ff;">
+TE AMO ❤️ TE AMO ❤️ TE AMO ❤️ TE AMO ❤️
+</div>
+</div>
+
+<script>
+function abrirCarta(){
+    document.getElementById("inicio").style.display="none";
+    document.getElementById("carta").style.display="block";
+}
+
+/* corazones flotando */
+function crearCorazon(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤ TE AMO";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(15+Math.random()*25)+"px";
+    heart.style.animationDuration=(5+Math.random()*5)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),8000);
+}
+setInterval(crearCorazon,300);
+</script>
+
+</body>
+</html>
